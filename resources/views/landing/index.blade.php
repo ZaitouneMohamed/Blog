@@ -4,15 +4,15 @@
 <section class="section-padding">
     <div class="container">
         <div class="row">
-            @foreach (\App\Models\Posts::paginate(3) as $item)
+            @foreach (\App\Models\Posts::where('prenium',1)->paginate(3) as $item)
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="category-item">
                         <div class="category-img">
-                            <a href="blog-single.html"><img src="{{$item->image}}" alt="" class="img-fluid w-100"></a>
+                            <a href="{{route('post.show',$item)}}"><img src="{{$item->image}}" alt="" class="img-fluid w-100"></a>
                         </div>
                         <div class="content">
                             <a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">{{$item->categorie->name}}</a>
-                            <h4><a href="blog-single.html">{{$item->created_at->format('F d , Y ')}}-{{$item->comments->count()}}</a></h4>
+                            <h4><a href="blog-single.html">{{$item->created_at->format('F d , Y ')}}-{{$item->tags->count()}}</a></h4>
                         </div>
                     </div>
                 </div>
@@ -46,11 +46,11 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         @foreach (\App\Models\Posts::orderBy("id","desc")->get()->take(4) as $item)
                             <article class="post-grid mb-5">
-                                <a class="post-thumb mb-4 d-block" href="blog-single.html">
+                                <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
                                     <img src="{{$item->image}}" alt="" class="img-fluid w-100">
                                 </a>
                                 <span class="letter-spacing cat-name font-extra text-uppercase font-sm text-color ">{{$item->categorie->name}}</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">{{$item->title}}</a></h3>
+                                <h3 class="post-title mt-1"><a href="{{route('post.show',$item)}}">{{$item->title}}-{{$item->tags->count()}}</a></h3>
 
                                 <span class="text-muted letter-spacing text-uppercase font-sm">{{$item->created_at->format('F d , Y ')}}</span>
                                 <div class="post-content mt-4">
@@ -68,7 +68,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         @foreach (\App\Models\Posts::all()->take(3) as $item)
                             <article class="post-grid mb-5">
-                                <a class="post-thumb mb-4 d-block" href="blog-single.html">
+                                <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
                                     <img src="{{$item->image}}" alt="" class="img-fluid w-100">
                                 </a>
                                 <span class="letter-spacing cat-name font-extra text-uppercase font-sm text-color ">{{$item->categorie->name}}</span>
@@ -119,10 +119,10 @@
                             <h4 class="text-center widget-title">Trending Posts</h4>
                             @foreach (\App\Models\Posts::orderBy("views","desc")->get()->where('published',1)->take(3) as $item)
                                 <div class="media border-bottom py-3 sidebar-post-item">
-                                    <a href="#"><img class="mr-4" src="{{$item->image}}" alt=""></a>
+                                    <a href="{{route('post.show',$item)}}"><img class="mr-4" src="{{$item->image}}" alt=""></a>
                                     <div class="media-body">
                                         <span class="text-muted letter-spacing text-uppercase font-sm">{{$item->created_at->format('F d , Y ')}}</span>
-                                        <h4><a href="blog-single.html">{{$item->title}}</a></h4>
+                                        <h4><a href="{{route('post.show',$item)}}">{{$item->title}}</a></h4>
                                     </div>
                                 </div>
                             @endforeach

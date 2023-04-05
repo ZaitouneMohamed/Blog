@@ -21,17 +21,17 @@
 	<!-- THEME CSS
 	================================================== -->
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
 	<!-- Themify -->
-	<link rel="stylesheet" href="assets/plugins/themify/css/themify-icons.css">
-	<link rel="stylesheet" href="assets/plugins/slick-carousel/slick-theme.css">
-	<link rel="stylesheet" href="assets/plugins/slick-carousel/slick.css">
+	<link rel="stylesheet" href="{{asset('assets/plugins/themify/css/themify-icons.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/plugins/slick-carousel/slick-theme.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/plugins/slick-carousel/slick.css')}}">
 	<!-- Slick Carousel -->
-	<link rel="stylesheet" href="assets/plugins/owl-carousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/plugins/owl-carousel/owl.theme.default.min.css">
-	<link rel="stylesheet" href="assets/plugins/magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="{{asset('assets/plugins/owl-carousel/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/plugins/owl-carousel/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/plugins/magnific-popup/magnific-popup.css')}}">
 	<!-- manin stylesheet -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 
 <body>
@@ -89,21 +89,18 @@
 	<!-- THEME JAVASCRIPT FILES
 ================================================== -->
 	<!-- initialize jQuery Library -->
-	<script src="assets/plugins/jquery/jquery.js"></script>
-	<!-- Bootstraassets/p jQuery -->
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-	<!-- Owl caeoassets/usel -->
-	<script src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
-	<script src="assets/plugins/slick-carousel/slick.min.js"></script>
-	<script src="assets/plugins/magnific-popup/magnific-popup.js"></script>
-	<!-- Instagraassets/m Feed Js -->
-	<script src="assets/plugins/instafeed-js/instafeed.min.js"></script>
+	<script src="{{asset('assets/plugins/jquery/jquery.js')}}"></script>
+	<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/owl-carousel/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/slick-carousel/slick.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/magnific-popup/magnific-popup.js')}}"></script>
+	<script src="{{asset('assets/plugins/instafeed-js/instafeed.min.js')}}"></script>
 	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-	<script src="assets/plugins/google-map/gmap.js"></script>
+	<script src="{{asset('assets/plugins/google-map/gmap.js')}}"></script>
 	<!-- main js assets/-->
-	<script src="assets/js/custom.js"></script>
+	<script src="{{asset('assets/js/custom.js')}}"></script>
 
 
 </body>

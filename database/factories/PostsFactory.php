@@ -24,7 +24,7 @@ class PostsFactory extends Factory
             'body' =>fake()->paragraph(2),
             'prenium' => fake()->numberBetween($min = 0, $max = 1),
             'published' => fake()->numberBetween($min = 0, $max = 1),
-            'user_id' => fake()->numberBetween($min = 1, $max = 10),
+            'user_id' => 1,
             'views' => fake()->numberBetween($min = 10, $max = 100),
             'categorie_id' => fake()->numberBetween($min = 1, $max = 7),
             'image' => fake()->imageUrl(640, 480, 'animals', true,'dogs'),

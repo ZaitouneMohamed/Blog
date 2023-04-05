@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('admin.home')" :active="request()->routeIs('admin.home')">
                         admin
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.posts.index')" :active="request()->routeIs('admin.posts.index')">
+                        posts
+                    </x-nav-link>
                 </div>
             </div>
 

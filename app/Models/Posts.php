@@ -20,12 +20,22 @@ class Posts extends Model
         'image'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function categorie()
     {
         return $this->belongsTo(Categorie::class);
     }
 
-    public function comments(){
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
         return $this->hasMany(Comments::class);
     }
     

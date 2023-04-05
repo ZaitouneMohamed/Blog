@@ -18,7 +18,7 @@ class CommentsFactory extends Factory
     {
         return [
             'body' => fake()->text(),
-            'user_id' => fake()->numberBetween($min = 1, $max = 10),
+            'user_id' => 2,
             'posts_id' => fake()->numberBetween($min = 1, $max = 30),
         ];
     }

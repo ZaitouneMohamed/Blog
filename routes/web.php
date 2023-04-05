@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing.index');
 });
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware('auth')->name('admin.home');
+
+Route::resource("post",PostController::class)->only("show");
+Route::middleware("auth")->name("admin.")->prefix("admin")->group(function() {
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name("home");
+    Route::resource("posts",PostController::class)->except("show");
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

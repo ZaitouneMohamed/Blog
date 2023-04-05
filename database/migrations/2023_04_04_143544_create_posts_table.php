@@ -20,8 +20,7 @@ return new class extends Migration
             $table->boolean("prenium");
             $table->boolean("published");
             $table->string("image");
-            $table->foreignId('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('categorie_id')->unsigned();
             $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
