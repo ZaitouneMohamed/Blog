@@ -143,43 +143,29 @@
                     <h3 class="mb-4 text-center">{{$post->comments->count()}} Comments</h3>
                     @foreach ($post->comments as $item)
                         <div class="comment-area-box media">
-                            <img alt="" src="images/blog-user-2.jpg" class="img-fluid float-left mr-3 mt-2">
-
+                            <img alt="" src="{{ asset('assets/images/blog-user-2.jpg') }}" style="border-radius: 50%" class="img-fluid float-left mr-3 mt-2">
                             <div class="media-body ml-4">
                                 <h4 class="mb-0">{{$item->user->name}} </h4>
                                 <span class="date-comm font-sm text-capitalize text-color"><i
                                         class="ti-time mr-2"></i>{{$item->created_at}} </span>
-
                                 <div class="comment-content mt-3">
                                     <p>{{$item->body}}.</p>
-                                </div>
-                                <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-                                    <a href="#" class="text-underline ">Reply</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 @auth
-                    <form class="comment-form mb-5 gray-bg p-5" id="comment-form">
+                    <form class="comment-form mb-5 gray-bg p-5" id="comment-form" action="{{route('addcomment',$post->id)}}" method="POST">
+                        @csrf
+                        @method("get")
                         <h3 class="mb-4 text-center">Leave a comment</h3>
                         <div class="row">
                             <div class="col-lg-12">
                                 <textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5"
                                     placeholder="Comment"></textarea>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="name" id="name" placeholder="Name:">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="mail" id="mail" placeholder="Email:">
-                                </div>
-                            </div>
                         </div>
-
                         <input class="btn btn-primary" type="submit" name="submit-contact" id="submit_contact"
                             value="Submit Message">
                     </form>

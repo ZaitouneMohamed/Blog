@@ -13,12 +13,12 @@ class Tags extends Model
     ];
 
 
-    public function tags()
+    public function posts()
     {
         return $this->belongsToMany(
             Posts::class,
-            'tag_id',
             'post_tags',
+            'tag_id',
             'post_id'
         );
     }

@@ -119,10 +119,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('admin.tags')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Annonces list
+                                    tags
                                     {{-- <span class="right badge badge-danger">New</span> --}}
                                 </p>
                             </a>
