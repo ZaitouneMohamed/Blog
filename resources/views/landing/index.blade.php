@@ -12,7 +12,7 @@
                         </div>
                         <div class="content">
                             <a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">{{$item->categorie->name}}</a>
-                            <h4><a href="blog-single.html">{{$item->created_at->format('F d , Y ')}}-{{$item->tags->count()}}</a></h4>
+                            <h4><a href="blog-single.html">{{$item->created_at->format('F d , Y ')}}</a></h4>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                                     <img src="{{$item->image}}" alt="" class="img-fluid w-100">
                                 </a>
                                 <span class="letter-spacing cat-name font-extra text-uppercase font-sm text-color ">{{$item->categorie->name}}</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">{{$item->title}}</a></h3>
+                                <h3 class="post-title mt-1"><a href="{{route('post.show',$item)}}">{{$item->title}}</a></h3>
 
                                 <span class="text-muted letter-spacing text-uppercase font-sm">{{$item->created_at->format('F d , Y ')}}</span>
                                 <div class="post-content mt-4">
@@ -134,7 +134,7 @@
                             <ul class="list-unstyled">
                                 @foreach (\App\Models\Categorie::all()->take(5) as $item)
                                     <li class="align-items-center d-flex justify-content-between">
-                                        <a href="#">{{$item->name}}</a>
+                                        <a href="{{route('posts_of_categorie',$item->name)}}">{{$item->name}}</a>
                                         <span>{{$item->posts->count()}}</span>
                                     </li>
                                 @endforeach

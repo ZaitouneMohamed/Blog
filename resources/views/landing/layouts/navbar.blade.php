@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
-                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="" class="img-fluid w-100"></a>
+                <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt="" class="img-fluid w-100"></a>
             </div>
         </div>
     </div>
