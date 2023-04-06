@@ -12,7 +12,7 @@
                             <div class="post-header mb-5 text-center">
                                 <div class="meta-cat">
                                     <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"
-                                        href="#">{{$post->categorie->name}}</a>
+                                        href="{{route('posts_of_categorie',$post->categorie->name)}}">{{$post->categorie->name}}</a>
                                 </div>
                                 <h2 class="post-title mt-2">
                                     {{$post->title}}
@@ -73,7 +73,7 @@
 
                                 <div class="post-tags py-4">
                                     @foreach ($post->tags as $tag)
-                                        <a href="#">#{{$tag->name}}</a>
+                                        <a href="{{route('posts_of_tag',$tag->name)}}">#{{$tag->name}}</a>
                                     @endforeach
                                 </div>
 
@@ -212,7 +212,7 @@
                                     <a href="{{route('post.show',$item)}}"><img class="mr-4" src="{{$item->image}}" alt=""></a>
                                     <div class="media-body">
                                         <span class="text-muted letter-spacing text-uppercase font-sm">{{$item->created_at->format('F d , Y ')}}</span>
-                                        <h4><a href="blog-single.html">{{$item->slug}}</a></h4>
+                                        <h4><a href="{{route('post.show',$item)}}">{{$item->slug}}</a></h4>
                                     </div>
                                 </div>
                             @endforeach
@@ -225,7 +225,7 @@
                             <ul class="list-unstyled">
                                 @foreach (\App\Models\Categorie::all()->take(5) as $item)
                                     <li class="align-items-center d-flex justify-content-between">
-                                        <a href="#">{{$item->name}}</a>
+                                        <a href="{{route('posts_of_categorie',$item->name)}}">{{$item->name}}</a>
                                         <span>{{$item->posts->count()}}</span>
                                     </li>
                                 @endforeach
