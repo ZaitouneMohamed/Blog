@@ -12,6 +12,11 @@ class Tags extends Model
         'name'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
 
     public function posts()
     {

@@ -14,6 +14,10 @@ class Categorie extends Model
         'image'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
     public function posts()
     {
         return $this->hasMany(Posts::class);
