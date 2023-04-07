@@ -33,6 +33,9 @@ Route::middleware("auth")->name("admin.")->prefix("admin")->group(function() {
     Route::get('/tags', function () {
         return view('admin.tags');
     })->name("tags");
+    Route::get('/users', function () {
+        return view('admin.users');
+    })->name("tags");
     Route::resource("posts",PostController::class)->except("show");
 });
 
