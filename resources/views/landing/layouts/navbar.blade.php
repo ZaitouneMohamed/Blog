@@ -19,6 +19,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul id="menu" class="menu navbar-nav ">
+                    <li class="nav-item"><a href="/" class="nav-link">home</a></li>
                     <li class="nav-item dropdown  pl-0">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
