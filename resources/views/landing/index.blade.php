@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="pagination mt-5 pt-4">
-                    <a class="btn btn-success mt-3" style="color: white"> read more</a>
+                    <a class="btn btn-success mt-3" style="color: white" href="{{route('posts_list')}}"> read more</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

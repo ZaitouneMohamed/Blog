@@ -36,7 +36,7 @@ class Posts extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comments::class);
+        return $this->hasMany(Comments::class)->orderBy('created_at','DESC');
     }
     
     public function tags()
