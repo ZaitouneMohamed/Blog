@@ -23,6 +23,7 @@
                             <th>categorie</th>
                             <th>tags</th>
                             <th>view</th>
+                            <th>comments</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@
                                         @endforeach
                                 </td>
                                 <td>{{$item->views}}</td>
+                                <td>{{$item->comments->count()}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
