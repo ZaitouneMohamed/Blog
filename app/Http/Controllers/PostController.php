@@ -46,7 +46,7 @@ class PostController extends Controller
         ]);
         $image = $request->image;
         $image_name = time() . '_' . $image->getClientOriginalName();
-        $image->move(public_path('posts'),$image_name);
+        $image->move(public_path('assets/posts'),$image_name);
         $post = Posts::create([
             "title" => $request->title,
             "slug" => Str::slug($request->title),

@@ -21,6 +21,12 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function posts_list()
+    {
+        $posts = Posts::latest()->orderBy('views','DESC')->paginate(10);
+        return view('landing.posts',compact('posts'));
+    }
+
     public function posts_of_categorie(Categorie $categorie)
     {
         $posts = $categorie->posts()->paginate(10);
