@@ -110,7 +110,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('admin.users')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     all users
@@ -123,12 +123,25 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     tags
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">
+                                        {{\App\Models\Tags::all()->count()}}
+                                    </span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.messages.index')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    messages
+                                    <span class="right badge badge-success">
+                                        {{\App\Models\Message::where('statue',0)->count()}}
+                                    </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     User list

@@ -19,14 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing.index');
 });
+Route::get('/contact', function () {
+    return view('landing.contact');
+})->name("contact");
 
 Route::get('add_comment/{id}' , [HomeController::class , 'addComment'])->name("addcomment");
 Route::get('posts_of_categorie/{categorie}' , [HomeController::class , 'posts_of_categorie'])->name("posts_of_categorie");
 Route::get('posts_of_tag/{tag}' , [HomeController::class , 'posts_of_tag'])->name("posts_of_tag");
 Route::get('posts' , [HomeController::class , 'posts_list'])->name("posts_list");
+Route::get('send_message' , [HomeController::class , 'contact'])->name("send_message");
 
 Route::resource("post",PostController::class)->only("show");
-Route::middleware("auth")->name("admin.")->prefix("admin")->group(function() {
+Route::middleware("auth","role:admin")->name("admin.")->prefix("admin")->group(function() {
     Route::get('/', function () {
         return view('admin.index');
     })->name("home");
@@ -35,8 +39,10 @@ Route::middleware("auth")->name("admin.")->prefix("admin")->group(function() {
     })->name("tags");
     Route::get('/users', function () {
         return view('admin.users');
-    })->name("tags");
+    })->name("users");
     Route::resource("posts",PostController::class)->except("show");
+    Route::get('messages' , [HomeController::class , 'messages_list'])->name("messages.index");
+    Route::get('read_message/{id}' , [HomeController::class , 'read_message'])->name("messages.read");
 });
 
 Route::get('/dashboard', function () {
