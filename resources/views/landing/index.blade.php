@@ -4,7 +4,7 @@
 <section class="section-padding">
     <div class="container">
         <div class="row">
-            @foreach (\App\Models\Posts::where('prenium',1)->paginate(3) as $item)
+            @foreach (\App\Models\Posts::where('prenium',1)->orderBy('views','DESC')->take(3)->get() as $item)
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="category-item">
                         <div class="category-img">
