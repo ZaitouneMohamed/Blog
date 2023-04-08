@@ -15,7 +15,7 @@ class TagsList extends Component
 
     public function getTagsProperty()
     {
-        return Tags::all();
+        return Tags::latest()->get();
     }
 
     public function add()

@@ -14,6 +14,6 @@ class Users extends Component
 
     public function getUsersProperty()
     {
-        return User::all();
+        return User::latest()->get();
     }
 }
