@@ -15,6 +15,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>posts count</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -23,6 +24,7 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
+                                <td>{{$item->posts->count()}}</td>
                                 <td>
                                     @if ($item->posts->count() == 0)
                                         <button class="btn btn-danger" wire:click="delete({{$item->id}})">delete</button>
