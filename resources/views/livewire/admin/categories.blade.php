@@ -29,6 +29,7 @@
                                     @if ($item->posts->count() == 0)
                                         <button class="btn btn-danger" wire:click="delete({{$item->id}})">delete</button>
                                     @endif
+                                    <button class="btn btn-warning" @click="open = true" wire:click="getCategorie({{$item->id}})">update</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -43,12 +44,12 @@
                         <input type="text" class="form-control" wire:model="name">
                         @error('name') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
-                    {{-- @if ($editing)
-                        <a type="button" wire:click="update()" class="btn btn-warning">update</a>
+                    @if ($editing)
+                        <a type="button" wire:click="update()" @click="open = false" class="btn btn-warning">update</a>
                         <a class="btn btn-danger" type="button" wire:click="cancel()">cancel</a>
-                    @else--}}
+                    @else
                     <button type="submit" @click="open = false" class="btn btn-primary">submit</button>
-                    {{-- @endif  --}}
+                    @endif 
                 </form>
             </div>
         </div>

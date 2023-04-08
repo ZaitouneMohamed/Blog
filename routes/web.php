@@ -24,6 +24,7 @@ Route::get('/contact', function () {
 })->name("contact");
 
 Route::get('add_comment/{id}' , [HomeController::class , 'addComment'])->name("addcomment");
+Route::get('delete_comment/{id}' , [HomeController::class , 'deleteComment'])->name("deleteComment")->middleware("role:admin");
 Route::get('posts_of_categorie/{categorie}' , [HomeController::class , 'posts_of_categorie'])->name("posts_of_categorie");
 Route::get('posts_of_tag/{tag}' , [HomeController::class , 'posts_of_tag'])->name("posts_of_tag");
 Route::get('posts' , [HomeController::class , 'posts_list'])->name("posts_list");

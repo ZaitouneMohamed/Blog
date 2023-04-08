@@ -30,45 +30,7 @@
 
                             <div class="post-body">
                                 <div class="entry-content">
-                                    <p> It was a cheerful prospect. I asked Perry what he thought about it; but he
-                                        only shrugged his shoulders and continued a longwinded prayer he had been at
-                                        for some time. He was wont to say that the only redeeming feature of our
-                                        captivity was the ample time it gave him for the improvisation of prayers—it
-                                        was becoming an obsession with him.</p>
-                                    <h2 class="mt-4 mb-3">Perfect design & code delivered to you</h2>
-                                    <p> The Sagoths had begun to take notice of his habit of declaiming throughout
-                                        entire marches. One of them asked him what he was saying—to whom he was
-                                        talking. The question gave me an idea, so I answered quickly before Perry
-                                        could say anything.</p>
-                                    <blockquote>
-                                        <i class="ti-quote-left mr-2"></i>A wise girls knows her limit to touch the
-                                        sky.Repellat sapiente neque iusto praesentium adipisci.The question gave me
-                                        an idea, so I answered quickly before Perry could say anything.<i
-                                            class="ti-quote-right ml-2"></i>
-                                    </blockquote>
-
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <img src="images/fashion/single-img1.png" alt="post-img"
-                                                class="img-fluid mr-4 w-100">
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <img src="images/fashion/single-img2.png" alt="post-img"
-                                                class="img-fluid mr-4 w-100">
-                                        </div>
-                                    </div>
-                                    <h3 class="mt-5 mb-3">Enjoying the view of summer</h3>
-
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum delectus
-                                        exercitationem
-                                        natus quidem enim error suscipit. Iure cupiditate nobis quaerat consectetur!
-                                        Vero aliquam,
-                                        amet ipsum ullam reiciendis nostrum voluptate accusantium provident ut
-                                        blanditiis incidunt. </p>
-
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab
-                                        ratione animi nobis in et consequatur
-                                        earum modi repellendus, qui, non debitis pariatur tempora consequuntur!</p>
+                                    {{$post->body}}
                                 </div>
 
                                 <div class="post-tags py-4">
@@ -126,7 +88,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="post-block-wrapper mb-4 mb-lg-0">
                                     <a href="{{route('post.show',$item)}}">
-                                        <img class="img-fluid" src="{{$item->image}}" alt="post-thumbnail" />
+                                        <img class="img-fluid" src="{{ asset('assets/posts') }}/{{$item->image}}" alt="post-thumbnail" />
                                     </a>
                                     <div class="post-content mt-3">
                                         <h5>
@@ -148,6 +110,10 @@
                                 <h4 class="mb-0">{{$item->user->name}} </h4>
                                 <span class="date-comm font-sm text-capitalize text-color"><i
                                         class="ti-time mr-2"></i>{{$item->created_at}} </span>
+                                        @if (auth()->user()->hasRole('admin'))
+                                            <a href="{{route('deleteComment',$item->id)}}"><i
+                                                class="ti-time mr-2"></i></a>
+                                        @endif
                                 <div class="comment-content mt-3">
                                     <p>{{$item->body}}.</p>
                                 </div>
@@ -204,43 +170,8 @@
                             </div>
                         </div> --}}
 
-                        <div class="sidebar-widget mb-5 ">
-                            <h4 class="text-center widget-title">Trending Posts</h4>
-
-                            @foreach (\App\Models\Posts::orderBy("views","desc")->get()->where('published',1)->take(3) as $item)
-                                <div class="media py-3 sidebar-post-item">
-                                    <a href="{{route('post.show',$item)}}"><img class="mr-4" src="{{$item->image}}" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="text-muted letter-spacing text-uppercase font-sm">{{$item->created_at->format('F d , Y ')}}</span>
-                                        <h4><a href="{{route('post.show',$item)}}">{{$item->slug}}</a></h4>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-
-
-                        <div class="sidebar-widget category mb-5">
-                            <h4 class="text-center widget-title">Catgeories</h4>
-                            <ul class="list-unstyled">
-                                @foreach (\App\Models\Categorie::all()->take(5) as $item)
-                                    <li class="align-items-center d-flex justify-content-between">
-                                        <a href="{{route('posts_of_categorie',$item->name)}}">{{$item->name}}</a>
-                                        <span>{{$item->posts->count()}}</span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                        <div class="sidebar-widget subscribe mb-5">
-                            <h4 class="text-center widget-title">Newsletter</h4>
-                            <input type="text" class="form-control" placeholder="Email Address">
-                            <a href="#" class="btn btn-primary d-block mt-3">Sign Up</a>
-                        </div>
-
-                        <div class="sidebar-widget sidebar-adv mb-5">
-                            <a href="#"><img src="images/sidebar-banner3.png" alt="" class="img-fluid w-100"></a>
-                        </div>
+                        @include("posts.trending")
+                        @include("posts.categories")
 
                     </div>
                 </div>

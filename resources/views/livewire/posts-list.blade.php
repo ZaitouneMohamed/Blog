@@ -48,14 +48,14 @@
                                         <button class="btn btn-danger" wire:click="TooglePublish({{$item->id}})">unpublished</button>
                                     @endif
                                 </td>
-                                <td><img src="{{ asset('posts') }}/{{$item->image}}" width="80" height="80px" alt=""></td>
+                                <td><img src="{{ asset('assets/posts') }}/{{$item->image}}" width="80" height="80px" alt=""></td>
                                 <td>{{$item->user->name}}</td>
                                 <td>{{$item->categorie->name}}</td>
                                 <td class="d-flex">
                                         @foreach ($item->tags as $tag)
-                                        <p class="badge badge-secondary">
+                                        <button wire:click="removetagfrompost({{$tag->id}},{{$item->id}})" class="badge badge-secondary">
                                             {{$tag->name}}
-                                        </p>
+                                        </button>
                                         @endforeach
                                 </td>
                                 <td>{{$item->views}}</td>
@@ -67,7 +67,7 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" wire:click="delete({{$item->id}})" >Delete</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="{{route('admin.posts.edit',$item->id)}}">edit</a>
                                         </div>
                                     </div>
                                 </td>

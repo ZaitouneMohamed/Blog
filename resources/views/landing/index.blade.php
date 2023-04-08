@@ -8,7 +8,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="category-item">
                         <div class="category-img">
-                            <a href="{{route('post.show',$item)}}"><img src="{{$item->image}}" alt="" class="img-fluid w-100"></a>
+                            <a href="{{route('post.show',$item)}}"><img src="{{ asset('assets/posts') }}/{{$item->image}}" alt="" class="img-fluid w-100"></a>
                         </div>
                         <div class="content">
                             <a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">{{$item->categorie->name}}</a>
@@ -47,7 +47,7 @@
                         @foreach (\App\Models\Posts::orderBy("id","desc")->get()->take(4) as $item)
                             <article class="post-grid mb-5">
                                 <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
-                                    <img src="{{$item->image}}" alt="" class="img-fluid w-100">
+                                    <img src="{{ asset('assets/posts') }}/{{$item->image}}" alt="" class="img-fluid w-100">
                                 </a>
                                 <span class="letter-spacing cat-name font-extra text-uppercase font-sm text-color ">{{$item->categorie->name}}</span>
                                 <h3 class="post-title mt-1"><a href="{{route('post.show',$item)}}">{{$item->title}}-{{$item->tags->count()}}</a></h3>
@@ -69,7 +69,7 @@
                         @foreach (\App\Models\Posts::all()->take(3) as $item)
                             <article class="post-grid mb-5">
                                 <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
-                                    <img src="{{$item->image}}" alt="" class="img-fluid w-100">
+                                    <img src="{{ asset('assets/posts') }}/{{$item->image}}" alt="" class="img-fluid w-100">
                                 </a>
                                 <span class="letter-spacing cat-name font-extra text-uppercase font-sm text-color ">{{$item->categorie->name}}</span>
                                 <h3 class="post-title mt-1"><a href="{{route('post.show',$item)}}">{{$item->title}}</a></h3>

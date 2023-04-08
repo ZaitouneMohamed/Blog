@@ -82,15 +82,35 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Posts::find($id);
+        return view('admin.posts.edit',compact('post'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Posts::find($id);
+        $request->validate([
+            "title" => "required",
+            "body" => "required",
+        ]);
+        if ($request->has('image')) {
+            $image = $request->image;
+            $image_name = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('assets/posts'),$image_name);
+            $post->image = $image_name;
+            $post->update();
+        }
+        $post->update([
+            "title" => $request->title,
+            "slug" => Str::slug($request->title),
+            "body" => $request->body,
+            "categorie_id" => $request->categorie_id,
+        ]);
+        $post->tags()->sync($request->tags);
+        return redirect()->route("admin.posts.index");
     }
 
     /**
