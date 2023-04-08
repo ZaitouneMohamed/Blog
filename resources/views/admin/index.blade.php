@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    <div class="content-wrapper">
+    {{-- <div class="content-wrapper"> --}}
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -31,8 +31,8 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    {{-- <h3>{{\App\Models\categorie::count()}}</h3> --}}
-                                    <h3>15</h3>
+                                    <h3>{{\App\Models\categorie::count()}}</h3>
+                                    {{-- <h3>15</h3> --}}
 
                                     <p>Categories</p>
                                 </div>
@@ -48,9 +48,9 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>{{\App\Models\Tags::count()}}</h3>
 
-                                    <p>Bounce Rate</p>
+                                    <p>Tags</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -64,9 +64,9 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <h3>{{\App\Models\Message::where('statue',0)->count()}}</h3>
 
-                                    <p>User Registrations</p>
+                                    <p>New Messages</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
@@ -80,8 +80,8 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Unique Visitors</p>
+                                    <h3>{{\App\Models\Posts::count()}}</h3>
+                                    <p>Posts</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
@@ -99,7 +99,7 @@
             </section>
             <!-- /.content -->
         </div>
-    </div>
+    {{-- </div> --}}
 @endsection
 
 @section('scripts')
