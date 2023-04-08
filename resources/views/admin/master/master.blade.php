@@ -130,6 +130,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('admin.categories')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    categories
+                                    <span class="right badge badge-success">
+                                        {{\App\Models\Categorie::all()->count()}}
+                                    </span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('admin.messages.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>

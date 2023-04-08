@@ -40,6 +40,9 @@ Route::middleware("auth","role:admin")->name("admin.")->prefix("admin")->group(f
     Route::get('/users', function () {
         return view('admin.users');
     })->name("users");
+    Route::get('/categories', function () {
+        return view('admin.categories');
+    })->name("categories");
     Route::resource("posts",PostController::class)->except("show");
     Route::get('messages' , [HomeController::class , 'messages_list'])->name("messages.index");
     Route::get('read_message/{id}' , [HomeController::class , 'read_message'])->name("messages.read");

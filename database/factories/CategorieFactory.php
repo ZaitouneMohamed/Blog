@@ -20,7 +20,6 @@ class CategorieFactory extends Factory
         return [
             'name' => $name,
             "slug" => Str::slug($name),
-            'image' => fake()->imageUrl($width = 640, $height = 480),
         ];
     }
 }
