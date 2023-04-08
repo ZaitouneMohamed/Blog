@@ -22,6 +22,12 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function deleteComment($id)
+    {
+        Comments::find($id)->delete();
+        return redirect()->back();
+    }
+
     public function posts_list()
     {
         $posts = Posts::latest()->orderBy('views','DESC')->paginate(10);
