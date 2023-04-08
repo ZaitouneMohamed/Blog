@@ -39,6 +39,13 @@ class PostsList extends Component
         $this->getPostsProperty();
     }
     
+    public function removetagfrompost($tagid,$postid)
+    {
+        $post = Posts::find($postid);
+        $tag = Tags::find($tagid);
+        $post->tags()->detach($tag);
+        $this->getPostsProperty();
+    }
     public function delete($id)
     {
         Posts::Find($id)->delete();

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class TagsList extends Component
 {
-    public $name;
+    public $name,$tagid,$editing;
     public function render()
     {
         return view('livewire.tags-list');
@@ -26,6 +26,22 @@ class TagsList extends Component
         ]);
         $this->getTagsProperty();
         $this->name = "";
+    }
+
+    public function gettag($id)
+    {
+        $tag = Tags::find($id);
+        $this->name = $tag->name;
+        $this->tagid = $tag->id;
+        $this->editing = true;
+    }
+    public function update()
+    {
+        Tags::find($this->tagid)->update([
+            "name" => $this->name
+        ]);
+        $this->editing = false;
+        $this->getTagsProperty();
     }
 
     public function delete($id)
