@@ -29,7 +29,6 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->comments->count()}}</td>
-                                <td>{{$item->messages->}}</td>
                                 <td>
                                     @if ($item->roles)
                                         @foreach ($item->roles as $role)

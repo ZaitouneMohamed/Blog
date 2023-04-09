@@ -84,7 +84,7 @@
                         You May Also Like
                     </h3>
                     <div class="row">
-                        @foreach (\App\Models\Posts::orderBy("views","desc")->get()->take(3) as $item)
+                        @foreach (\App\Models\Posts::orderBy("views","desc")->where('id','!=',$post->id)->get()->take(3) as $item)
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="post-block-wrapper mb-4 mb-lg-0">
                                     <a href="{{route('post.show',$item)}}">
