@@ -97,6 +97,7 @@ class PostController extends Controller
             "body" => "required",
         ]);
         if ($request->has('image')) {
+            unlink(public_path('assets/posts').'/'.$post->image);
             $image = $request->image;
             $image_name = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('assets/posts'),$image_name);
@@ -112,7 +113,6 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
         return redirect()->route("admin.posts.index");
     }
-
     /**
      * Remove the specified resource from storage.
      */
