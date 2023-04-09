@@ -42,14 +42,22 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="name">Your Name (required)</label>
-                                        <input class="form-control form-control-name" name="name" id="name"
+                                        <input class="form-control form-control-name"
+                                        @auth
+                                            value="{{auth()->user()->name}}"
+                                        @endauth
+                                        name="name" id="name"
                                             type="text" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Your Email (required)</label>
 
-                                        <input class="form-control form-control-email" name="email" id="email"
+                                        <input class="form-control form-control-email" 
+                                            @auth
+                                                value="{{auth()->user()->email}}"
+                                            @endauth
+                                            name="email" id="email"
                                             type="email" required>
                                     </div>
 

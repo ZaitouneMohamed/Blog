@@ -16,4 +16,10 @@ class Users extends Component
     {
         return User::latest()->get();
     }
+
+    public function delete($id)
+    {
+        User::find($id)->delete();
+        $this->getUsersProperty();
+    }
 }

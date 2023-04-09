@@ -16,6 +16,8 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>email</th>
+                            <th>comments</th>
+                            <th>messages</th>
                             <th>role</th>
                             <th>action</th>
                         </tr>
@@ -26,17 +28,27 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
+                                <td>{{$item->comments->count()}}</td>
+                                <td>{{$item->messages->}}</td>
                                 <td>
                                     @if ($item->roles)
                                         @foreach ($item->roles as $role)
-                                            <button class="btn btn-success rounded-circle">{{$role->name}}</button>
+                                            <button 
+                                            @if ($role->name == "admin")
+                                                class="badge badge-sucess"
+                                            @else
+                                                class="badge badge-primary"
+                                            @endif
+                                            >{{$role->name}}</button>
                                         @endforeach
                                     @endif
                                 </td>
                                 <td class="d-flex">
-                                    <button class="btn btn-danger" wire:click="delete({{$item->id}})">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                    @if ($item->comments->count() == 0)
+                                        <button class="btn btn-danger" wire:click="delete({{$item->id}})">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    @endif
                                     <a href="" class="btn btn-success">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
