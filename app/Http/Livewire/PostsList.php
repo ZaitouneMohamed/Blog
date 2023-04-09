@@ -20,7 +20,7 @@ class PostsList extends Component
     }
     public function getPostsProperty()
     {
-        return Posts::latest()->paginate(10);
+        return Posts::latest()->paginate(15);
     }
 
     public function TooglePublish($id)
@@ -48,7 +48,9 @@ class PostsList extends Component
     }
     public function delete($id)
     {
-        Posts::Find($id)->delete();
+        $post = Posts::find($id);
+        unlink(public_path('assets/posts').'/'.$post->image);
+        $post->delete();
         $this->getPostsProperty();
     }
 

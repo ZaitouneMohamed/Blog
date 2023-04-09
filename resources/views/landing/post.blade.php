@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="post-img mb-4">
-                                <a href="#"><img class="img-fluid" src="images/fashion/bg-banner-2.jpg" alt=""></a>
+                                <a href="#"><img class="img-fluid" src="{{ asset('assets/posts') }}/{{$post->image}}" alt=""></a>
                             </div>
 
                             <div class="post-body">
@@ -110,10 +110,12 @@
                                 <h4 class="mb-0">{{$item->user->name}} </h4>
                                 <span class="date-comm font-sm text-capitalize text-color"><i
                                         class="ti-time mr-2"></i>{{$item->created_at}} </span>
-                                        @if (auth()->user()->hasRole('admin'))
-                                            <a href="{{route('deleteComment',$item->id)}}"><i
-                                                class="ti-time mr-2"></i></a>
-                                        @endif
+                                        @auth
+                                            @if (auth()->user()->hasRole('admin') || auth()->user()->id == $item->user_id )
+                                                <a href="{{route('deleteComment',$item->id)}}"><i
+                                                    class="ti-time mr-2"></i></a>
+                                            @endif
+                                        @endauth
                                 <div class="comment-content mt-3">
                                     <p>{{$item->body}}.</p>
                                 </div>
@@ -138,9 +140,8 @@
                 @endauth
                 @guest
                     <div class="sidebar-widget subscribe mb-5">
-                            <h4 class="text-center widget-title">Newsletter</h4>
-                            <input type="text" class="form-control" placeholder="Email Address">
-                            <a href="#" class="btn btn-primary d-block mt-3">Sign Up</a>
+                            <h4 class="text-center widget-title">please login to Add Comment </h4>
+                            <a href="/login" class="btn btn-primary d-block mt-3">Sign Up</a>
                         </div>
                 @endguest
 

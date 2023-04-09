@@ -12,7 +12,7 @@
                         </div>
                         <div class="content">
                             <a href="#" class="text-color text-uppercase font-sm letter-spacing font-extra">{{$item->categorie->name}}</a>
-                            <h4><a href="blog-single.html">{{$item->created_at->format('F d , Y ')}}</a></h4>
+                            <h4><a href="{{route('post.show',$item)}}">{{$item->created_at->format('F d , Y ')}}</a></h4>
                         </div>
                     </div>
                 </div>
