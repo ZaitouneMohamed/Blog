@@ -102,7 +102,7 @@
                         data-accordion="false">
                         <li class="nav-item">
                             <a href="{{route('admin.posts.index')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="fa-solid fa-bookmark"></i>
                                 <p>
                                     posts
                                     {{-- <span class="right badge badge-danger">New</span> --}}
@@ -111,7 +111,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.users')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="fa-solid fa-user"></i>
                                 <p>
                                     all users
                                     {{-- <span class="right badge badge-danger">New</span> --}}
@@ -120,7 +120,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.tags')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="fa-solid fa-tag"></i>
                                 <p>
                                     tags
                                     <span class="right badge badge-success">
@@ -131,7 +131,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.categories')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="fa-solid fa-bars"></i>
                                 <p>
                                     categories
                                     <span class="right badge badge-success">
@@ -142,55 +142,12 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.messages.index')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="fa-solid fa-envelope"></i>
                                 <p>
                                     messages
                                     <span class="right badge badge-success">
                                         {{\App\Models\Message::where('statue',0)->count()}}
                                     </span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    User list
-                                    <i class="fas fa-angle-left right"></i>
-                                    {{-- <span class="badge badge-info right">6</span> --}}
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Admins</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Users</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fournisseurs</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Charts
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
