@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('landing.contact');
 })->name("contact");
+Route::get('/chat', function () {
+    return view('landing.chat');
+})->name("chat")->middleware("auth");
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
