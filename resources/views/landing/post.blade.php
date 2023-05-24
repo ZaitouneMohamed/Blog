@@ -30,7 +30,7 @@
 
                             <div class="post-body">
                                 <div class="entry-content">
-                                    {{$post->body}}
+                                    {!! html_entity_decode($post->body) !!}
                                 </div>
 
                                 <div class="post-tags py-4">
