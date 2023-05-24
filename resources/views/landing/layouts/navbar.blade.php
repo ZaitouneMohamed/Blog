@@ -43,6 +43,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="/chat" class="nav-link">chat</a></li>
                     <li class="nav-item d-lg-none">
                         <div class="search_toggle p-3 d-inline-block bg-white"><i class="ti-search"></i></div>
                     </li>
