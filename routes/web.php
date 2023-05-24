@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('landing.contact');
 })->name("contact");
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
 
 Route::get('add_comment/{id}' , [HomeController::class , 'addComment'])->name("addcomment");
 Route::get('delete_comment/{id}' , [HomeController::class , 'deleteComment'])->name("deleteComment")->middleware("role:admin");
@@ -31,7 +34,7 @@ Route::get('posts' , [HomeController::class , 'posts_list'])->name("posts_list")
 Route::get('send_message' , [HomeController::class , 'contact'])->name("send_message");
 
 Route::resource("post",PostController::class)->only("show");
-Route::middleware("auth","role:admin")->name("admin.")->prefix("admin")->group(function() {
+Route::middleware("AdminRedirection","role:admin")->name("admin.")->prefix("admin")->group(function() {
     Route::get('/', function () {
         return view('admin.index');
     })->name("home");
