@@ -165,16 +165,16 @@
             </div>
         </div>
         <!-- REQUIRED SCRIPTS -->
-
+        @yield('scripts')
         <!-- jQuery -->
+        @livewireScripts
         <script src="{{ asset('dashboards/adminlte/plugins/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/dist/js/adminlte.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/plugins/chart.js/Chart.min.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/dist/js/demo.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/dist/js/pages/dashboard3.js') }}"></script>
-        @yield('scripts')
-        @livewireScripts
+        
 
 </body>
 
