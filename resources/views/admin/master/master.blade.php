@@ -151,6 +151,17 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.chat')}}" class="nav-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                <p>
+                                    chat
+                                    {{-- <span class="right badge badge-success">
+                                        {{\App\Models\Message::where('statue',0)->count()}}
+                                    </span> --}}
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
