@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="{{asset('assets/plugins/owl-carousel/owl.theme.default.min.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/plugins/magnific-popup/magnific-popup.css')}}">
 	<!-- manin stylesheet -->
+	@yield("styles")
 	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 
@@ -89,6 +90,7 @@
 	<!-- THEME JAVASCRIPT FILES
 ================================================== -->
 	<!-- initialize jQuery Library -->
+	@yield("scripts")
 	<script src="{{asset('assets/plugins/jquery/jquery.js')}}"></script>
 	<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
