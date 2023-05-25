@@ -4,7 +4,7 @@
 <section class="section-padding">
     <div class="container">
         <div class="row">
-            @foreach (\App\Models\Posts::where('prenium',1)->orderBy('views','DESC')->take(3)->get() as $item)
+            @foreach (\App\Models\Posts::where('prenium',1)->where('published',1)->orderBy('views','DESC')->take(3)->get() as $item)
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="category-item">
                         <div class="category-img">
@@ -44,7 +44,7 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        @foreach (\App\Models\Posts::orderBy("id","desc")->get()->take(4) as $item)
+                        @foreach (\App\Models\Posts::orderBy("id","desc")->where('published',1)->get()->take(4) as $item)
                             <article class="post-grid mb-5">
                                 <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
                                     <img src="{{ asset('assets/posts') }}/{{$item->image}}" alt="" class="img-fluid w-100">
@@ -66,7 +66,7 @@
 
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        @foreach (\App\Models\Posts::all()->take(3) as $item)
+                        @foreach (\App\Models\Posts::all()->where('published',1)->take(3) as $item)
                             <article class="post-grid mb-5">
                                 <a class="post-thumb mb-4 d-block" href="{{route('post.show',$item)}}">
                                     <img src="{{ asset('assets/posts') }}/{{$item->image}}" alt="" class="img-fluid w-100">
@@ -96,10 +96,6 @@
 
                         @include("posts.trending")
                         @include("posts.categories")
-
-
-                        
-
                         <div class="sidebar-widget subscribe mb-5">
                             <h4 class="text-center widget-title">Newsletter</h4>
                             <input type="text" class="form-control" placeholder="Email Address">
