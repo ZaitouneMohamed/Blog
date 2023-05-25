@@ -41,6 +41,9 @@ Route::middleware("AdminRedirection","role:admin")->name("admin.")->prefix("admi
     Route::get('/', function () {
         return view('admin.index');
     })->name("home");
+    Route::get('/chat', function () {
+        return view('admin.chat');
+    })->name("chat");
     Route::get('/tags', function () {
         return view('admin.tags');
     })->name("tags");
