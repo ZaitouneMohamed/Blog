@@ -7,7 +7,9 @@ use App\Models\Comments;
 use App\Models\Message;
 use App\Models\Posts;
 use App\Models\Tags;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,31 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function CreatePost(Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "body" => "required",
+            "image" => "required",
+        ]);
+        $image = $request->image;
+        $image_name = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('assets/posts'),$image_name);
+        $post = Posts::create([
+            "title" => $request->title,
+            "slug" => Str::slug($request->title),
+            "body" => $request->body,
+            "published" => 0,
+            "prenium" => 0,
+            "user_id" => Auth::user()->id,
+            "categorie_id" => $request->categorie_id,
+            "image" => $image_name,
+        ]);
+        $post->tags()->sync($request->tags);
+        return redirect()->route('index')->with([
+            "message" => "wait for validation"
+        ]);
+    }
     public function deleteComment($id)
     {
         Comments::find($id)->delete();

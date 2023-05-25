@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landing.index');
-});
+})->name("index");
 Route::get('/contact', function () {
     return view('landing.contact');
 })->name("contact");
@@ -28,6 +28,11 @@ Route::get('/chat', function () {
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
+Route::get('/create_post', function () {
+    return view('landing.create_post');
+});
+
+Route::post('add_post' , [HomeController::class , 'CreatePost'])->name("user.CreatePost");
 
 Route::get('add_comment/{id}' , [HomeController::class , 'addComment'])->name("addcomment");
 Route::get('delete_comment/{id}' , [HomeController::class , 'deleteComment'])->name("deleteComment")->middleware("role:admin");
