@@ -40,6 +40,8 @@ Route::get('posts_of_categorie/{categorie}' , [HomeController::class , 'posts_of
 Route::get('posts_of_tag/{tag}' , [HomeController::class , 'posts_of_tag'])->name("posts_of_tag");
 Route::get('posts' , [HomeController::class , 'posts_list'])->name("posts_list");
 Route::get('send_message' , [HomeController::class , 'contact'])->name("send_message");
+Route::get('user_profile/{id}' , [HomeController::class , 'user_profile'])->name("user_profile");
+Route::get('start_conversation/{id}' , [HomeController::class , 'startConversation'])->name("startConversation");
 
 Route::resource("post",PostController::class)->only("show");
 Route::middleware("AdminRedirection","role:admin")->name("admin.")->prefix("admin")->group(function() {

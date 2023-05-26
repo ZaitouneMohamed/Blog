@@ -19,7 +19,14 @@ class Posts extends Model
         'categorie_id',
         'image'
     ];
-
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
     public function getRouteKeyName()
     {
         return 'slug';

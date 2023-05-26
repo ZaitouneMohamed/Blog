@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
-                <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt="" class="img-fluid w-100"></a>
+                <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt=""
+                        class="img-fluid w-100"></a>
             </div>
         </div>
     </div>
@@ -20,32 +21,42 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul id="menu" class="menu navbar-nav ">
                     <li class="nav-item"><a href="/" class="nav-link">home</a></li>
-                    <li class="nav-item"><a href="{{route('posts_list')}}" class="nav-link">Post Lists</a></li>
+                    <li class="nav-item"><a href="{{ route('posts_list') }}" class="nav-link">Post Lists</a></li>
                     <li class="nav-item dropdown  pl-0">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach (\App\Models\Categorie::all() as $item)
-                                <a class="dropdown-item" href="{{route('posts_of_categorie',$item)}}">{{$item->name}}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('posts_of_categorie', $item) }}">{{ $item->name }}</a>
                             @endforeach
                         </div>
                     <li class="nav-item dropdown  pl-0">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tags
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach (\App\Models\Tags::all() as $item)
-                                <a class="dropdown-item" href="{{route('posts_of_tag',$item)}}">{{$item->name}}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('posts_of_tag', $item) }}">{{ $item->name }}</a>
                             @endforeach
                         </div>
                     </li>
-                    <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                     @auth
-                        <li class="nav-item"><a href="/chat" class="nav-link">chat</a></li>
-                        <li class="nav-item"><a href="/create_post" class="nav-link">add post</a></li>
+                        <li class="nav-item dropdown  pl-0">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/chat">chat</a>
+                                <a class="dropdown-item" href="/create_post">add post</a>
+                            </div>
+                        </li>
                     @endauth
                     <li class="nav-item d-lg-none">
                         <div class="search_toggle p-3 d-inline-block bg-white"><i class="ti-search"></i></div>
