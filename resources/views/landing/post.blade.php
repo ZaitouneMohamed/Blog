@@ -19,7 +19,7 @@
                                 </h2>
 
                                 <div class="post-meta">
-                                    <span class="text-uppercase font-sm letter-spacing-1 mr-3">by {{$post->user->name}}</span>
+                                    <a href="{{ route('user_profile',$post->user->id) }}" class="text-uppercase font-sm letter-spacing-1 mr-3">by {{$post->user->name}}</a>
                                     <span class="text-uppercase font-sm letter-spacing-1">{{$post->created_at->format('F d , Y ')}}</span>
                                 </div>
                             </div>

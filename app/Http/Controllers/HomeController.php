@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use App\Models\Comments;
+use App\Models\Conversation;
 use App\Models\Message;
 use App\Models\Posts;
 use App\Models\Tags;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +55,21 @@ class HomeController extends Controller
     {
         Comments::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function user_profile($id)
+    {
+        $user = User::find($id);
+        return view('landing.user.profile', compact('user'));
+    }
+
+    public function startConversation($id)
+    {
+        Conversation::create([
+            "sender_id" => Auth::user()->id,
+            "receiver_id" => $id
+        ]);
+        return redirect()->route('chat');
     }
 
     public function posts_list()
