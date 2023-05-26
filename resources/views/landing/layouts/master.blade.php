@@ -46,21 +46,6 @@
 
 	<!--footer start-->
 	<footer class="footer-section bg-grey">
-		<div class="instagram-photo-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h4 class="text-center">Follow in Instagram</h4>
-					</div>
-				</div>
-
-				<div class="row no-gutters" id="instafeed">
-
-				</div>
-			</div>
-		</div>
-		</div>
-
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
