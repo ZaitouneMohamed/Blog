@@ -2,17 +2,17 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text text-center">Add Neww post</h1>
-        <form action="{{ route('MyPosts.store') }}" method="POST" enctype="multipart/form-data">
+        <h1 class="text text-center">Add New post</h1>
+        <form action="{{ route('MyPosts.update',$post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('post')
+            @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">title :</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="title" value="{{$post->title}}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">body :</label>
-                <textarea class="form-control" id="body" placeholder="Enter the Description" name="body"></textarea>
+                <textarea class="form-control" id="body" placeholder="Enter the Description" name="body">{{$post->body}}</textarea>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">image :</label>

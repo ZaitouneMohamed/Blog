@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comments::class);
     }
+    public function Posts()
+    {
+        return $this->hasMany(Posts::class)->where('published',1);
+    }
 }
