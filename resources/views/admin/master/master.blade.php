@@ -64,10 +64,9 @@
                             profile
                         </a>
                         <div class="dropdown-divider"></div>
-                        <form method="POST" action="{{ route('logout') }}" id="frm">
-                            @csrf
-                            <button type="submit" class="dropdown-item text-center">log out </button>
-                        </form>
+                        <a href="logout" class="dropdown-item text-center">
+                            Log Out
+                        </a>
                     </div>
                 </li>
             </ul>
