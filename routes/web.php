@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\PostController as UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::get('posts' , [HomeController::class , 'posts_list'])->name("posts_list")
 Route::get('send_message' , [HomeController::class , 'contact'])->name("send_message");
 Route::get('user_profile/{id}' , [HomeController::class , 'user_profile'])->name("user_profile");
 Route::get('start_conversation/{id}' , [HomeController::class , 'startConversation'])->name("startConversation");
+Route::resource("MyPosts",UserPostController::class)->middleware("auth","role:crud");
 
 Route::resource("post",PostController::class)->only("show");
 Route::middleware("AdminRedirection","role:admin")->name("admin.")->prefix("admin")->group(function() {

@@ -1,13 +1,5 @@
-<div class="header-logo py-5 d-none d-lg-block">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 text-center">
-                <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt=""
-                        class="img-fluid w-100"></a>
-            </div>
-        </div>
-    </div>
-</div>
+@include('landing.auth.login')
+@include('landing.auth.register')
 
 <header class="header-top bg-grey justify-content-center">
     <nav class="navbar navbar-expand-lg navigation">
@@ -46,6 +38,12 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+                    @guest
+                        <li class="nav-item"><a data-bs-toggle="modal" class="nav-link"
+                                data-bs-target="#registerForm">Register</a></li>
+                        <li class="nav-item"><a data-bs-toggle="modal" class="nav-link"
+                                data-bs-target="#loginForm">login</a></li>
+                    @endguest
                     @auth
                         <li class="nav-item dropdown  pl-0">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -54,7 +52,9 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/chat">chat</a>
-                                <a class="dropdown-item" href="/create_post">add post</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <a class="dropdown-item" href="/MyPosts">my posts</a>
+                                <a class="dropdown-item" href="/logout">Log Out</a>
                             </div>
                         </li>
                     @endauth
@@ -91,3 +91,14 @@
         </form>
     </div>
 </div>
+
+@if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
+@if (session()->has('message'))
+    <div class="alert alert-warning">
+        {{ session()->get('message') }}
+    </div>
+@endif

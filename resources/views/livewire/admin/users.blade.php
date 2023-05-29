@@ -16,8 +16,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>email</th>
-                            <th>comments</th>
-                            <th>messages</th>
+                            <th>Posts</th>
                             <th>role</th>
                             <th>action</th>
                         </tr>
@@ -28,13 +27,13 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
-                                <td>{{$item->comments->count()}}</td>
+                                <td>{{$item->Posts->count()}}</td>
                                 <td>
                                     @if ($item->roles)
                                         @foreach ($item->roles as $role)
                                             <button 
                                             @if ($role->name == "admin")
-                                                class="badge badge-sucess"
+                                                class="badge badge-success"
                                             @else
                                                 class="badge badge-primary"
                                             @endif

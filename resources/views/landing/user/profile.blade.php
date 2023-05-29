@@ -72,7 +72,7 @@
                                 @endif
                             </div>
                             @if ($user->description)
-                                <p class="mt-2 card-text">{{ $user->description }}</p>
+                                <p class="mt-2 card-text">{{ $user->description         }}</p>
                             @else
                                 <p class="mt-2 card-text">
                                     For what reason would it be advisable for me to think about business content?
