@@ -9,7 +9,7 @@ class Chat extends Component
 {
     public function render()
     {
-        $messages = ModelsChat::where('conversation_id', $this->selectedConversationId)->get(); 
+        $messages = ModelsChat::where('conversation_id', $this->selectedConversationId)->get();
 
         return view('livewire.user.chat',[
             "messages" => $messages
