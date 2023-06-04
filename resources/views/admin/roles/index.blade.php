@@ -1,3 +1,4 @@
+@@ -1,58 +0,0 @@
 @extends('admin.master.master')
 
 @section('content')
