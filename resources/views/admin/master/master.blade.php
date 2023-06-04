@@ -18,7 +18,9 @@
     @livewireStyles
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('dashboards/adminlte/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -100,7 +102,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-                            <a href="{{route('admin.posts.index')}}" class="nav-link">
+                            <a href="{{ route('admin.posts.index') }}" class="nav-link">
                                 <i class="fa-solid fa-bookmark"></i>
                                 <p>
                                     posts
@@ -109,7 +111,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.users')}}" class="nav-link">
+                            <a href="{{ route('admin.users') }}" class="nav-link">
                                 <i class="fa-solid fa-user"></i>
                                 <p>
                                     all users
@@ -118,43 +120,65 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.tags')}}" class="nav-link">
+                            <a href="{{ route('admin.tags') }}" class="nav-link">
                                 <i class="fa-solid fa-tag"></i>
                                 <p>
                                     tags
                                     <span class="right badge badge-success">
-                                        {{\App\Models\Tags::all()->count()}}
+                                        {{ \App\Models\Tags::all()->count() }}
                                     </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.categories')}}" class="nav-link">
+                            <a href="{{ route('admin.categories') }}" class="nav-link">
                                 <i class="fa-solid fa-bars"></i>
                                 <p>
                                     categories
                                     <span class="right badge badge-success">
-                                        {{\App\Models\Categorie::all()->count()}}
+                                        {{ \App\Models\Categorie::all()->count() }}
                                     </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.messages.index')}}" class="nav-link">
+                            <a href="{{ route('admin.messages.index') }}" class="nav-link">
                                 <i class="fa-solid fa-envelope"></i>
                                 <p>
                                     messages
                                     <span class="right badge badge-success">
-                                        {{\App\Models\Message::where('statue',0)->count()}}
+                                        {{ \App\Models\Message::where('statue', 0)->count() }}
                                     </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.chat')}}" class="nav-link">
+                            <a href="{{ route('admin.chat') }}" class="nav-link">
                                 <i class="fa-solid fa-envelope"></i>
                                 <p>
                                     chat
+                                    {{-- <span class="right badge badge-success">
+                                        {{\App\Models\Message::where('statue',0)->count()}}
+                                    </span> --}}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.RolesList') }}" class="nav-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                <p>
+                                    roles
+                                    {{-- <span class="right badge badge-success">
+                                        {{\App\Models\Message::where('statue',0)->count()}}
+                                    </span> --}}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.PermissionsList') }}" class="nav-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                <p>
+                                    permissions
                                     {{-- <span class="right badge badge-success">
                                         {{\App\Models\Message::where('statue',0)->count()}}
                                     </span> --}}
@@ -171,6 +195,16 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+                @if (session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </div>
@@ -184,7 +218,7 @@
         <script src="{{ asset('dashboards/adminlte/plugins/chart.js/Chart.min.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/dist/js/demo.js') }}"></script>
         <script src="{{ asset('dashboards/adminlte/dist/js/pages/dashboard3.js') }}"></script>
-        
+
 
 </body>
 

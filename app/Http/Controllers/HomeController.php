@@ -12,6 +12,8 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -87,5 +89,16 @@ class HomeController extends Controller
         $message->statue = 1;
         $message->update();
         return view('admin.messages.view',compact('message'));
+    }
+    public function RolesList()
+    {
+        $roles = Role::paginate(5);
+        $permissions = Permission::all();
+        return view('admin.roles.index',compact('roles','permissions'));
+    }
+    public function PermissionsList()
+    {
+        $permissions = Permission::paginate(5);
+        return view('admin.permissions.index', compact('permissions'));
     }
 }
