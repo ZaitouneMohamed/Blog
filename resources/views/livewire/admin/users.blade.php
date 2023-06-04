@@ -17,7 +17,8 @@
                             <th>Name</th>
                             <th>email</th>
                             <th>Posts</th>
-                            <th>role</th>
+                            <th>roles</th>
+                            <th>permissions</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -31,7 +32,7 @@
                                 <td>
                                     @if ($item->roles)
                                         @foreach ($item->roles as $role)
-                                            <button 
+                                            <button
                                             @if ($role->name == "admin")
                                                 class="badge badge-success"
                                             @else
@@ -41,13 +42,16 @@
                                         @endforeach
                                     @endif
                                 </td>
+                                <td>
+                                    {{ $item->permissions->count() }}
+                                </td>
                                 <td class="d-flex">
-                                    @if ($item->comments->count() == 0)
+                                    @if ($item->posts->count() == 0)
                                         <button class="btn btn-danger" wire:click="delete({{$item->id}})">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     @endif
-                                    <a href="" class="btn btn-success">
+                                    <a href="{{ route('admin.user.profile', ['id'=>$item->id]) }}" class="btn btn-success">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                 </td>
