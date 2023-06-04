@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
 	<!-- Themify -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @livewireStyles
 	<link rel="stylesheet" href="{{asset('assets/plugins/themify/css/themify-icons.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/plugins/slick-carousel/slick-theme.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/plugins/slick-carousel/slick.css')}}">
@@ -41,7 +42,7 @@
 
 
 	@include("landing.layouts.navbar")
-	
+
 	<!--search overlay end-->
 	@yield("content")
 
@@ -87,6 +88,7 @@
 	<script src="{{asset('assets/plugins/magnific-popup/magnific-popup.js')}}"></script>
 	<script src="{{asset('assets/plugins/instafeed-js/instafeed.min.js')}}"></script>
 	<!-- Google Map -->
+    @livewireScripts
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 	<script src="{{asset('assets/plugins/google-map/gmap.js')}}"></script>
 	<!-- main js assets/-->

@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AssignController;
-use App\Http\Controllers\admin\PermissionsController;
-use App\Http\Controllers\admin\RolesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;

@@ -1,83 +1,32 @@
 @extends('landing.layouts.master')
 
 @section('content')
-    <br><br><br><br>
-    <div class="container">
-        <div class="col-md-9">
-            <div class="card">
-                <div class="card-header p-2">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">change password</a></li>
-                    </ul>
-                </div><!-- /.card-header -->
-                <div class="card-body">
-                    <div class="tab-content">
-                        <div class="active tab-pane" id="activity">
-                            <!-- Post -->
-                            <form class="form-horizontal" action="{{ route('profile.update') }}" method="post">
-                                @csrf
-                                @method('patch')
-                                <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ auth()->user()->name }}" id="inputName" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" name="email" value="{{ auth()->user()->email }}"
-                                            class="form-control" id="inputEmail" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- /.post -->
-                        </div>
-                        <div class="tab-pane" id="settings">
-                            <form class="form-horizontal" action="{{ route('password.update') }}" method="POST">
-                                @csrf
-                                @method('put')
-                                <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">old password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" name="current_password" class="form-control" id="inputName"
-                                            placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">new password</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" name="password" class="form-control" id="inputEmail"
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">repeat password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" name="password_confirmation" class="form-control" id="inputEmail"
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.tab-pane -->
-                    </div>
-                    <!-- /.tab-content -->
-                </div><!-- /.card-body -->
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">User</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-            <!-- /.card -->
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <livewire:user.profile.picture />
+
+                    <div class="card mb-4 mb-lg-0">
+                        <livewire:user.profile.links />
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <livewire:user.profile.info />
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 @endsection

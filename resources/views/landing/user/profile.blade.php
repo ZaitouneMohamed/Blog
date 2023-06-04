@@ -1,60 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('landing.layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <style>
-        .container {
-            margin-top: 50px;
-        }
-
-        .stretch-card>.card {
-            width: 100%;
-            min-width: 100%;
-        }
-
-        .card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: #fff;
-            background-clip: border-box;
-            border: 1px solid #d2d2dc;
-            border-radius: 0;
-        }
-
-        .btn-info {
-            color: #fff;
-            background-color: #3da5f4;
-            border-color: #3da5f4;
-        }
-
-        .btn {
-            font-size: 0.875rem;
-            line-height: 1;
-            font-weight: 400;
-            padding: .7rem 1.5rem;
-            border-radius: 0.1275rem;
-        }
-
-        h6 {
-            font-size: .9375rem;
-        }
-    </style>
-</head>
-
-<body>
+@section('content')
+    <br><br><br>
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
-
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-body text-center">
@@ -72,7 +22,7 @@
                                 @endif
                             </div>
                             @if ($user->description)
-                                <p class="mt-2 card-text">{{ $user->description         }}</p>
+                                <p class="mt-2 card-text">{{ $user->description }}</p>
                             @else
                                 <p class="mt-2 card-text">
                                     For what reason would it be advisable for me to think about business content?
@@ -110,6 +60,5 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-</body>
 
-</html>
+@endsection
