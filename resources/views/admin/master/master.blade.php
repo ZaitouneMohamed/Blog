@@ -103,30 +103,10 @@
                         data-accordion="false">
                         <li class="nav-item">
                             <a href="{{ route('admin.posts.index') }}" class="nav-link">
-                                <i class="fa-solid fa-bookmark"></i>
+                                <i class="fa-sharp fa-solid fa-blog"></i>
                                 <p>
                                     posts
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.users') }}" class="nav-link">
-                                <i class="fa-solid fa-user"></i>
-                                <p>
-                                    all users
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.tags') }}" class="nav-link">
-                                <i class="fa-solid fa-tag"></i>
-                                <p>
-                                    tags
-                                    <span class="right badge badge-success">
-                                        {{ \App\Models\Tags::all()->count() }}
-                                    </span>
+                                    <span class="right badge badge-success">{{ App\Models\Posts::count() }}</span>
                                 </p>
                             </a>
                         </li>
@@ -142,46 +122,37 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.messages.index') }}" class="nav-link">
-                                <i class="fa-solid fa-envelope"></i>
+                            <a href="{{ route('admin.tags') }}" class="nav-link">
+                                <i class="fa-solid fa-tag"></i>
                                 <p>
-                                    messages
+                                    tags
                                     <span class="right badge badge-success">
-                                        {{ \App\Models\Message::where('statue', 0)->count() }}
+                                        {{ \App\Models\Tags::all()->count() }}
                                     </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.chat') }}" class="nav-link">
-                                <i class="fa-solid fa-envelope"></i>
+                            <a href="{{ route('admin.users') }}" class="nav-link">
+                                <i class="fa-solid fa-user"></i>
                                 <p>
-                                    chat
-                                    {{-- <span class="right badge badge-success">
-                                        {{\App\Models\Message::where('statue',0)->count()}}
-                                    </span> --}}
+                                    all users
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.RolesList') }}" class="nav-link">
-                                <i class="fa-solid fa-envelope"></i>
+                                <i class="fa-solid fa-ruler"></i>
                                 <p>
                                     roles
-                                    {{-- <span class="right badge badge-success">
-                                        {{\App\Models\Message::where('statue',0)->count()}}
-                                    </span> --}}
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.PermissionsList') }}" class="nav-link">
-                                <i class="fa-solid fa-envelope"></i>
+                                <i class="fa-regular fa-universal-access"></i>
                                 <p>
                                     permissions
-                                    {{-- <span class="right badge badge-success">
-                                        {{\App\Models\Message::where('statue',0)->count()}}
-                                    </span> --}}
                                 </p>
                             </a>
                         </li>

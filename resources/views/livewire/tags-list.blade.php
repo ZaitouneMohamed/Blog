@@ -2,7 +2,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4" >
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tags</h6>
             <div class="d-flex justify-content-center">
                 <button class="btn btn-primary" style="margin-right: 5px" @click="open = false">show table</button>
                 <button class="btn btn-primary" @click="open = true">show form</button>
@@ -49,7 +49,7 @@
                         <a class="btn btn-danger" type="button" wire:click="cancel()">cancel</a>
                     @else
                     <button type="submit" class="btn btn-primary">submit</button>
-                    @endif 
+                    @endif
                 </form>
             </div>
         </div>

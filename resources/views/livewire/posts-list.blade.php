@@ -34,7 +34,7 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ Str::limit($item->title, 20, '...') }}</td>
                                 <td>{{ Str::limit($item->slug, 20, '...') }}</td>
-                                <td>{{ Str::limit($item->body, 20, '...') }}</td>
+                                <td>{!! html_entity_decode(Str::limit($item->body, 20, '...')) !!}</td>
                                 <td>
                                     @if ($item->prenium == 1)
                                         <button class="btn btn-success"

@@ -20,10 +20,10 @@
                             </h3>
                             <span class="text-muted text-capitalize">{{ $item->created_at->format('F d , Y ') }}</span><br>
                             <span class="text-muted text-capitalize text-center">
-                                @if ($item->active == 0)
-                                    wait for active
+                                @if ($item->published == 0)
+                                    <span class="badge bg-danger">wait for active</span>
                                 @else
-                                    wait for active
+                                    <span class="badge bg-success">validate</span>
                                 @endif
                             </span>
                         </article>
