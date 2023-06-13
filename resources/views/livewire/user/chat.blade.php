@@ -4,8 +4,19 @@
             <div class="card-header msg_head">
                 <div class="d-flex bd-highlight">
                     <div class="img_cont">
-                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                            class="rounded-circle user_img">
+                        @if (\App\Models\Conversation::find($selectedConversationId)->sender_id === auth()->user()->id)
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->receiver_id;
+                                $image = \App\Models\User::find($user)->image;
+                            @endphp
+                            <img src="{{ asset('storage') }}/{{ $image }}" class="rounded-circle user_img">
+                        @else
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->sender_id;
+                                $image = \App\Models\User::find($user)->image;
+                            @endphp
+                            <img src="{{ asset('storage') }}/{{ $image }}" class="rounded-circle user_img">
+                        @endif
                         <span class="online_icon"></span>
                     </div>
                     <div class="user_info">
@@ -37,7 +48,10 @@
                     @if ($item->sender_id != auth()->user()->id)
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
-                                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                                @php
+                                    $image = \App\Models\User::find($item->sender_id)->image;
+                                @endphp
+                                <img src="{{ asset('storage') }}/{{ $image }}"
                                     class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer_send">
@@ -48,7 +62,10 @@
                     @else
                         <div class="d-flex justify-content-end mb-4">
                             <div class="img_cont_msg">
-                                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                                @php
+                                    $image = \App\Models\User::find($item->sender_id)->image;
+                                @endphp
+                                <img src="{{ asset('storage') }}/{{ $image }}"
                                     class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer">
@@ -58,13 +75,6 @@
                         </div>
                     @endif
                 @endforeach
-
-                {{-- <div class="d-flex justify-content-end mb-4">
-                    <div class="msg_cotainer_send">
-                        Hi Khalid i am good tnx how about you?
-                        <span class="msg_time_send">8:55 AM, Today</span>
-                    </div>
-                </div> --}}
             </div>
             <div class="card-footer">
                 <div class="input-group">
@@ -82,13 +92,33 @@
             <div class="card-header msg_head">
                 <div class="d-flex bd-highlight">
                     <div class="img_cont">
-                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                            class="rounded-circle user_img">
+                        @if (\App\Models\Conversation::find($selectedConversationId)->sender_id === auth()->user()->id)
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->receiver_id;
+                                $image = \App\Models\User::find($user)->image;
+                            @endphp
+                            <img src="{{ asset('storage') }}/{{ $image }}" class="rounded-circle user_img">
+                        @else
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->sender_id;
+                                $image = \App\Models\User::find($user)->image;
+                            @endphp
+                            <img src="{{ asset('storage') }}/{{ $image }}" class="rounded-circle user_img">
+                        @endif
                         <span class="online_icon"></span>
                     </div>
                     <div class="user_info">
-                        <span>Chat with Khalidd </span>
-                        <p>{{ $selectedConversationId }}</p>
+                        @if (\App\Models\Conversation::find($selectedConversationId)->sender_id === auth()->user()->id)
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->receiver_id;
+                            @endphp
+                            <span>Chat with {{ \App\Models\User::find($user)->name }} <span>
+                        @else
+                            @php
+                                $user = \App\Models\Conversation::find($selectedConversationId)->sender_id;
+                            @endphp
+                            <span>Chat with {{ \App\Models\User::find($user)->name }}</span>
+                        @endif
                     </div>
                 </div>
                 <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
@@ -101,7 +131,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="d-flex justify-content-start mb-4">
+            <div class="card-body msg_card_body">
                 <div class="container">
                     <p class="text-center text-white">no message here</p>
                 </div>
@@ -120,7 +150,11 @@
             </div>
         @endif
     @else
-        <p>No conversations available</p>
+    <div class="card-body msg_card_body">
+        <div class="container">
+            <p class="text-center text-white">no conversation here</p>
+        </div>
+    </div>
     @endif
 
 </div>

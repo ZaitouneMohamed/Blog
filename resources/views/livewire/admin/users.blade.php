@@ -61,7 +61,7 @@
                 </table>
                 {{-- {{$this->users->links()}} --}}
             </div>
-            <div x-show="open" x-transition>
+            {{-- <div x-show="open" x-transition>
                 <h1 class="text text-center">Add new categorie</h1>
                 <form wire:submit.prevent="add">
                     <div class="mb-3">
@@ -69,14 +69,8 @@
                         <input type="text" class="form-control" wire:model="name">
                         @error('name') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
-                    {{-- @if ($editing)
-                        <a type="button" wire:click="update()" class="btn btn-warning">update</a>
-                        <a class="btn btn-danger" type="button" wire:click="cancel()">cancel</a>
-                    @else--}}
-                    <button type="submit" class="btn btn-primary">submit</button>
-                    {{-- @endif  --}}
                 </form>
-            </div>
+            </div> --}}
         </div>
     </div>
 

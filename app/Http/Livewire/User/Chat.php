@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Chat as ModelsChat;
+use App\Models\Conversation;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Chat extends Component
@@ -28,11 +30,17 @@ class Chat extends Component
 
     public function sendMessage()
     {
-        // $this->validate();
+        $conversation = Conversation::find($this->selectedConversationId);
+        if ($conversation->sender_id === Auth()->user()->id) {
+            $receiver_id = Auth()->user()->id;
+        } else {
+            $receiver_id = $conversation->receiver_id;
+        }
+
         ModelsChat::create([
             'conversation_id' => $this->selectedConversationId,
             'sender_id' => auth()->id(),
-            'receiver_id' => 2,
+            'receiver_id' => $receiver_id,
             'message' => $this->body,
         ]);
         $this->body = "";

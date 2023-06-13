@@ -44,7 +44,7 @@
                                     class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
 
                                     <span class="single-comment-o"><i class="fa fa-comment-o"></i>{{$post->comments->count()}} comment</span>
-{{-- 
+{{--
                                     <div class="post-share">
                                         <span class="count-number-like">2</span>
                                         <a class="penci-post-like single-like-button"><i class="ti-heart"></i></a>
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <input class="btn btn-primary" type="submit" name="submit-contact" id="submit_contact"
-                            value="Submit Message">
+                            value="Submit Comment">
                     </form>
                 @endauth
                 @guest

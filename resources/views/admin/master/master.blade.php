@@ -62,11 +62,11 @@
                         {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item text-center">
+                        <a href="{{route('admin.profile')}}" class="dropdown-item text-center">
                             profile
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="logout" class="dropdown-item text-center">
+                        <a href="/logout" class="dropdown-item text-center">
                             Log Out
                         </a>
                     </div>

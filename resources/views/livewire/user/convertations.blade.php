@@ -3,8 +3,18 @@
         <li wire:click="selectConversation({{ $item->id }})">
             <div class="d-flex bd-highlight">
                 <div class="img_cont">
-                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-                    <span class="online_icon"></span>
+                    @if ($item->sender_id === Auth::user()->id)
+                        @php
+                            $user = App\Models\User::find($item->receiver_id);
+                        @endphp
+                        <img src="{{ asset('storage') }}/{{ $user->image }}" class="rounded-circle user_img">
+                    @else
+                        @php
+                            $user = App\Models\User::find($item->sender_id);
+                        @endphp
+                        <img src="{{ asset('storage') }}/{{ $user->image }}"
+                            class="rounded-circle user_img">
+                    @endif
                 </div>
                 <div class="user_info">
                     @if ($item->receiver_id === auth()->user()->id)

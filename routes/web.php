@@ -65,6 +65,9 @@ Route::middleware("AdminRedirection", "role:admin")->name("admin.")->prefix("adm
     Route::get('/categories', function () {
         return view('admin.categories');
     })->name("categories");
+    Route::get('/profile', function () {
+        return view('admin.profile');
+    })->name("profile");
     Route::resource("posts", PostController::class)->except("show");
     Route::get('roles', [HomeController::class, 'RolesList'])->name("RolesList");
     Route::get('permissions', [HomeController::class, 'PermissionsList'])->name("PermissionsList");
