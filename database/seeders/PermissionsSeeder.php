@@ -15,13 +15,9 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        // crud_posts
-        // Permission::create(['name' => 'crud_posts']);
-        // Permission::create(['name' => 'chat']);
-        $role = Role::find(2);
-        $role->givePermissionTo('crud_posts');
-        $user = User::find(3);
-        // $user->
-        // $role->givePermissionTo('edit articles');
+        Permission::create(['name' => 'crud_posts']);
+        Permission::create(['name' => 'chat']);
+        Permission::create(['name' => 'comment']);
+        User::find(2)->givePermissionTo(['crud_posts','chat','comment']);
     }
 }

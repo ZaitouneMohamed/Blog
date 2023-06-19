@@ -23,10 +23,7 @@
                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3">{{ $user->name }}</h5>
                             <p class="text-muted mb-1">{{ $user->role }}</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                            {{-- <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-                            </div> --}}
+                            <p class="text-muted mb-4">{{ $user->adresse }}</p>
                         </div>
                     </div>
                     <div class="card mb-4 mb-lg-0">
@@ -34,23 +31,19 @@
                             <ul class="list-group list-group-flush rounded-3">
                                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <i class="fas fa-globe fa-lg text-warning"></i>
-                                    <p class="mb-0">https://mdbootstrap.com</p>
+                                    <p class="mb-0">{{ $user->website }}</p>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                                    <p class="mb-0">mdbootstrap</p>
+                                    <p class="mb-0">{{ $user->github }}</p>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                                    <p class="mb-0">@mdbootstrap</p>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                                    <p class="mb-0">mdbootstrap</p>
+                                    <p class="mb-0">{{ $user->twitter }}</p>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                                    <p class="mb-0">mdbootstrap</p>
+                                    <p class="mb-0">{{ $user->facebook }}</p>
                                 </li>
                             </ul>
                         </div>
@@ -82,16 +75,7 @@
                                     <p class="mb-0">Phone</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(097) 234-5678</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Mobile</p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                    <p class="text-muted mb-0">{{ $user->phone }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -100,7 +84,7 @@
                                     <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-0">{{ $user->adresse }}</p>
                                 </div>
                             </div>
                         </div>

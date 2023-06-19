@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ])->assignRole('user');
+        ])->assignRole('user')->givePermissionTo(['crud_posts','chat','comment']);
 
 
         event(new Registered($user));
