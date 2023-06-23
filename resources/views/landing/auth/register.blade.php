@@ -20,13 +20,13 @@
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Password :</label>
-                        <input type="text" class="form-control" id="recipient-name" name="password">
+                        <input type="password" class="form-control" id="recipient-name" name="password">
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Repeat Password :</label>
                         <input type="password" class="form-control" id="recipient-name" name="password_confirmation">
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

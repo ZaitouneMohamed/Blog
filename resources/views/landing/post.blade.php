@@ -105,7 +105,7 @@
                     <h3 class="mb-4 text-center">{{$post->comments->count()}} Comments</h3>
                     @foreach ($post->comments as $item)
                         <div class="comment-area-box media">
-                            <img alt="" src="{{ asset('assets/images/blog-user-2.jpg') }}" style="border-radius: 50%" class="img-fluid float-left mr-3 mt-2">
+                            <img alt="" src="{{ asset('storage') }}/{{ $item->user->image }}" width="50px" style="border-radius: 50%" class="img-fluid float-left mr-3 mt-2">
                             <div class="media-body ml-4">
                                 <h4 class="mb-0">{{$item->user->name}} </h4>
                                 <span class="date-comm font-sm text-capitalize text-color"><i

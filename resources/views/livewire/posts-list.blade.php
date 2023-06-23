@@ -4,8 +4,8 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Posts List</h6>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-danger"><a href="{{ route('admin.posts.create') }}" style="color: white">Add New
-                        Post</a></button>
+                <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Add New
+                    Post</a>
             </div>
         </div>
         <div class="card-body">

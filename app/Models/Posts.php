@@ -19,6 +19,10 @@ class Posts extends Model
         'categorie_id',
         'image'
     ];
+    public function Published()
+    {
+        return $this->where('published',1);
+    }
     public function sluggable(): array
     {
         return [
@@ -36,16 +40,16 @@ class Posts extends Model
         return $this->belongsTo(Categorie::class);
     }
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
     public function comments()
     {
-        return $this->hasMany(Comments::class)->orderBy('created_at','DESC');
+        return $this->hasMany(Comments::class)->orderBy('created_at', 'DESC');
     }
-    
+
     public function tags()
     {
         return $this->belongsToMany(

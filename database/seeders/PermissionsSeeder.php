@@ -19,5 +19,6 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'chat']);
         Permission::create(['name' => 'comment']);
         User::find(2)->givePermissionTo(['crud_posts','chat','comment']);
+        User::find(1)->givePermissionTo(['crud_posts','chat','comment']);
     }
 }
